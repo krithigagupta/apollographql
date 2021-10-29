@@ -3,7 +3,7 @@ const { gql } = require('apollo-server-express');
 module.exports = gql`
 type Query {
 listings: [Listing]
-listingsById: [Listing]
+listingsById(city: String): [Listing]
 }
     type Listing {
         favoriteCount: Int
@@ -170,4 +170,20 @@ listingsById: [Listing]
         yearBuilt: Int
         parking: Parking 
     }
+    type User {
+    id: String!
+    email: String!
+  }
+    type AuthPayload {
+    token: String
+    user: User
+  }
+
+  type Mutation {
+    signIn(credentials: Credentials!): AuthPayload
+  }
+  input Credentials {
+    email: String!
+    password: String!
+  }
 `;

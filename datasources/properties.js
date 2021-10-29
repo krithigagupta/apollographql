@@ -15,9 +15,9 @@ class PropertiesAPI extends BaseAPI {
         throw new ApolloError("nothing returned");
     return data;
   }
-  async getListingsById() {
+  async getListingsById(city) {
 
-    const data = await this.get('/',{q: 'Houston'});
+    const data = await this.get('/',{q: city});
     if(!data)
         throw new ApolloError("nothing returned");
     return data;
