@@ -1,6 +1,5 @@
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express');
-const sessions = require('./data/sessions.json');
 const typeDefs = require('./types/index.js');
 const resolvers = require('./resolvers/index');
 const PropertiesAPI = require('./datasources/properties.js');
