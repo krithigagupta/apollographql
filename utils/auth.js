@@ -4,10 +4,12 @@ const bcrypt = require("bcryptjs");
 const createToken = (userInfo) => 
   JWT.sign({ sub: userInfo.id, email: userInfo.email }, "thisisasecret");
 
+  //these functions can be used for encoding password and verifying passwords
 const verifyPassword = (attemptedPw, hashedPw) =>
   bcrypt.compareSync(attemptedPw, hashedPw);
 
 const hashPassword = (password) => bcrypt.hashSync(password);
+
 //hardcoded secret value. would pull from process.env in production
 const verifyToken = (token) => {
   const newtoken = token.split(' ')[1];

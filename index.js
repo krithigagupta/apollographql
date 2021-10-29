@@ -12,7 +12,7 @@ const dataSources = () => ({
     propertiesAPI: new PropertiesAPI(),
 
   });
-//const server = new ApolloServer({ typeDefs,resolvers,dataSources});
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -30,11 +30,6 @@ const server = new ApolloServer({
 await server.start();
 
  server.applyMiddleware({ app, path:"/graphql" });
-
-/** Please remove me line 11-14 **/
-// app.get('*', (req, res, next) => {
-//     res.send("Good luck! 😀")
-// });
 
 app.listen({ port: 4000 }, () =>
     console.log(`Listening on http://localhost:4000/graphql`)
